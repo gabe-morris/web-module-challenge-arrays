@@ -88,9 +88,8 @@ Use the addFlavor function below to do the following:
 
 
 function addFlavor(array,string){
-let newFlavors = [...array];
-newFlavors.unshift(string);
-return newFlavors;
+array.unshift(string);
+return array;
 }
 console.log(addFlavor(originalFlavors, "Rainbow Sherbert"));
 
@@ -105,9 +104,11 @@ Use the removeLastFlavor function below to do the following:
     For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
 */
 
-function removeLastFlavor(/*your code here*/){
-   /*your code here*/
+function removeLastFlavor(array){
+     array.pop();
+     return array;
 }
+console.log(removeLastFlavor(originalFlavors));
 
 
 
@@ -122,10 +123,10 @@ Use the getFlavorByIndex function below to do the following:
     For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully
 */
 
-function getFlavorByIndex(/*your code here*/){
-    /*your code here*/
+function getFlavorByIndex(array,number){
+    return array[number];
 }
-
+console.log(getFlavorByIndex(originalFlavors, 2));
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 As corporate wants to add more and more flavors to their lineup, they've realized that they need to remove flavors based on flavor name, 
@@ -142,10 +143,15 @@ Use the removeFlavorByName function below to do the following:
     HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(/*your code here*/){
-    /*your code here*/
+function removeFlavorByName(array, string){
+    for(let i = 0; i < array.length; i++){
+        if(array[i] === string){
+           array.splice(i,1);
+        }
+    }
+    return array;
 }
-
+console.log("Task 6",removeFlavorByName(originalFlavors, "Rocky Road"));
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -170,7 +176,7 @@ Use the filterByWord function below to do the following:
 
 function filterByWord(array,string){
     const filteredFlavors = []; //empty array for filtered flavors
-    for(let i = 0; i > array.length; i++){
+    for(let i = 0; i < array.length; i++){
          //if the index contains the string
          if(array[i].includes(string)){
         //push index to new array
@@ -179,7 +185,7 @@ function filterByWord(array,string){
     }
    return filteredFlavors;
 }
-console.log(filterByWord(originalFlavors, "Chocolate"));
+console.log( "Task 7", filterByWord(originalFlavors, "Chocolate"));
 
 
 /* 💪💪💪💪💪🧁🍦🍨 STRETCH 🍨🍦🍫💪💪💪💪💪*/ 
